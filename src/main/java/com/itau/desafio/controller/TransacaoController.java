@@ -1,5 +1,6 @@
 package com.itau.desafio.controller;
 
+import com.itau.desafio.dto.EstatisticaDTO;
 import com.itau.desafio.dto.TransacaoDTO;
 import com.itau.desafio.service.TransacaoService;
 import org.springframework.http.HttpStatus;
@@ -30,5 +31,11 @@ public class TransacaoController {
     public ResponseEntity<Void> limparTransacoes() {
         service.limparTransacoes();
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/estatistica")
+    public ResponseEntity<EstatisticaDTO> obterEstatisticas() {
+        EstatisticaDTO estatisticas = service.calcularEstatisticas();
+        return ResponseEntity.ok(estatisticas);
     }
 }
