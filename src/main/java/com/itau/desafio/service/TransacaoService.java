@@ -23,6 +23,10 @@ public class TransacaoService {
         repository.salvar(transacao);
     }
 
+    public void limparTransacoes() {
+        repository.limpar();
+    }
+
     private void validarTransacao(TransacaoDTO transacaoDTO) {
         if (transacaoDTO.getValor() < 0) {
             throw new InvalidTransacaoException("O valor da transação não pode ser negativo.");

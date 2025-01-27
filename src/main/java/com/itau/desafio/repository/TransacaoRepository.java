@@ -11,14 +11,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class TransacaoRepository {
     private final List<Transacao> transacoes = new CopyOnWriteArrayList<>();
 
+    // Método para salvar uma transação
     public void salvar(Transacao transacao) {
         transacoes.add(transacao);
     }
 
+    // Método para listar todas as transações
     public List<Transacao> listar() {
         return Collections.unmodifiableList(transacoes);
     }
 
+    // Método para limpar todas as transações
     public void limpar() {
         transacoes.clear();
     }
